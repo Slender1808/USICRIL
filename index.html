@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>USICRIL</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="#">Hidden brand</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link disabled"
+                  href="#"
+                  tabindex="-1"
+                  aria-disabled="true"
+                  >Disabled</a
+                >
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container">
+      <section class="m-5"><h1>USICRIL</h1></section>
+      <section class="mb-3">
+        <div
+          id="carouselExampleCaptions"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="https://picsum.photos/id/1/1024"
+                class="d-block w-100"
+                alt="..."
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>
+                  Some representative placeholder content for the first slide.
+                </p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://picsum.photos/id/2/1024"
+                class="d-block w-100"
+                alt="..."
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>
+                  Some representative placeholder content for the second slide.
+                </p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://picsum.photos/id/3/1024"
+                class="d-block w-100"
+                alt="..."
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>
+                  Some representative placeholder content for the third slide.
+                </p>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+      <section class="mb-3">
+        <h1 class="visually-hidden">Features examples</h1>
+        <div class="container px-4 py-5" id="featured-3">
+          <h2 class="pb-2 border-bottom">Columns with icons</h2>
+          <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <div class="feature col">
+              <div class="feature-icon bg-primary bg-gradient">
+                <svg class="bi" width="1em" height="1em">
+                  <use xlink:href="#collection"></use>
+                </svg>
+              </div>
+              <h2>Featured title</h2>
+              <p>
+                Paragraph of text beneath the heading to explain the heading.
+                We'll add onto it with another sentence and probably just keep
+                going until we run out of words.
+              </p>
+              <a href="#" class="icon-link">
+                Call to action
+                <svg class="bi" width="1em" height="1em">
+                  <use xlink:href="#chevron-right"></use>
+                </svg>
+              </a>
+            </div>
+            <div class="feature col">
+              <div class="feature-icon bg-primary bg-gradient">
+                <svg class="bi" width="1em" height="1em">
+                  <use xlink:href="#people-circle"></use>
+                </svg>
+              </div>
+              <h2>Featured title</h2>
+              <p>
+                Paragraph of text beneath the heading to explain the heading.
+                We'll add onto it with another sentence and probably just keep
+                going until we run out of words.
+              </p>
+              <a href="#" class="icon-link">
+                Call to action
+                <svg class="bi" width="1em" height="1em">
+                  <use xlink:href="#chevron-right"></use>
+                </svg>
+              </a>
+            </div>
+            <div class="feature col">
+              <div class="feature-icon bg-primary bg-gradient">
+                <svg class="bi" width="1em" height="1em">
+                  <use xlink:href="#toggles2"></use>
+                </svg>
+              </div>
+              <h2>Featured title</h2>
+              <p>
+                Paragraph of text beneath the heading to explain the heading.
+                We'll add onto it with another sentence and probably just keep
+                going until we run out of words.
+              </p>
+              <a href="#" class="icon-link">
+                Call to action
+                <svg class="bi" width="1em" height="1em">
+                  <use xlink:href="#chevron-right"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="b-example-divider"></div>
+
+        <div class="container px-4 py-5" id="hanging-icons">
+          <h2 class="pb-2 border-bottom">Hanging icons</h2>
+          <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <div class="col d-flex align-items-start">
+              <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                <svg class="bi" width="1em" height="1em">
+                  <use xlink:href="#toggles2"></use>
+                </svg>
+              </div>
+              <div>
+                <h2>Featured title</h2>
+                <p>
+                  Paragraph of text beneath the heading to explain the heading.
+                  We'll add onto it with another sentence and probably just keep
+                  going until we run out of words.
+                </p>
+                <a href="#" class="btn btn-primary"> Primary button </a>
+              </div>
+            </div>
+            <div class="col d-flex align-items-start">
+              <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                <svg class="bi" width="1em" height="1em">
+                  <use xlink:href="#cpu-fill"></use>
+                </svg>
+              </div>
+              <div>
+                <h2>Featured title</h2>
+                <p>
+                  Paragraph of text beneath the heading to explain the heading.
+                  We'll add onto it with another sentence and probably just keep
+                  going until we run out of words.
+                </p>
+                <a href="#" class="btn btn-primary"> Primary button </a>
+              </div>
+            </div>
+            <div class="col d-flex align-items-start">
+              <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                <svg class="bi" width="1em" height="1em">
+                  <use xlink:href="#tools"></use>
+                </svg>
+              </div>
+              <div>
+                <h2>Featured title</h2>
+                <p>
+                  Paragraph of text beneath the heading to explain the heading.
+                  We'll add onto it with another sentence and probably just keep
+                  going until we run out of words.
+                </p>
+                <a href="#" class="btn btn-primary"> Primary button </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="b-example-divider"></div>
+
+        <div class="container px-4 py-5" id="custom-cards">
+          <h2 class="pb-2 border-bottom">Custom cards</h2>
+
+          <div
+            class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5"
+          >
+            <div class="col">
+              <div
+                class="
+                  card card-cover
+                  h-100
+                  overflow-hidden
+                  text-white
+                  bg-dark
+                  rounded-5
+                  shadow-lg
+                "
+                style="background-image: url('https://picsum.photos/id/4/512')"
+              >
+                <div
+                  class="
+                    d-flex
+                    flex-column
+                    h-100
+                    p-5
+                    pb-3
+                    text-white text-shadow-1
+                  "
+                >
+                  <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
+                    Short title, long jacket
+                  </h2>
+                  <ul class="d-flex list-unstyled mt-auto">
+                    <li class="me-auto">
+                      <img
+                        src="https://github.com/twbs.png"
+                        alt="Bootstrap"
+                        width="32"
+                        height="32"
+                        class="rounded-circle border border-white"
+                      />
+                    </li>
+                    <li class="d-flex align-items-center me-3">
+                      <svg class="bi me-2" width="1em" height="1em">
+                        <use xlink:href="#geo-fill"></use>
+                      </svg>
+                      <small>Earth</small>
+                    </li>
+                    <li class="d-flex align-items-center">
+                      <svg class="bi me-2" width="1em" height="1em">
+                        <use xlink:href="#calendar3"></use>
+                      </svg>
+                      <small>3d</small>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div
+                class="
+                  card card-cover
+                  h-100
+                  overflow-hidden
+                  text-white
+                  bg-dark
+                  rounded-5
+                  shadow-lg
+                "
+                style="background-image: url('https://picsum.photos/id/5/512')"
+              >
+                <div
+                  class="
+                    d-flex
+                    flex-column
+                    h-100
+                    p-5
+                    pb-3
+                    text-white text-shadow-1
+                  "
+                >
+                  <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
+                    Much longer title that wraps to multiple lines
+                  </h2>
+                  <ul class="d-flex list-unstyled mt-auto">
+                    <li class="me-auto">
+                      <img
+                        src="https://github.com/twbs.png"
+                        alt="Bootstrap"
+                        width="32"
+                        height="32"
+                        class="rounded-circle border border-white"
+                      />
+                    </li>
+                    <li class="d-flex align-items-center me-3">
+                      <svg class="bi me-2" width="1em" height="1em">
+                        <use xlink:href="#geo-fill"></use>
+                      </svg>
+                      <small>Pakistan</small>
+                    </li>
+                    <li class="d-flex align-items-center">
+                      <svg class="bi me-2" width="1em" height="1em">
+                        <use xlink:href="#calendar3"></use>
+                      </svg>
+                      <small>4d</small>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div
+                class="
+                  card card-cover
+                  h-100
+                  overflow-hidden
+                  text-white
+                  bg-dark
+                  rounded-5
+                  shadow-lg
+                "
+                style="background-image: url('https://picsum.photos/id/6/512')"
+              >
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                  <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
+                    Another longer title belongs here
+                  </h2>
+                  <ul class="d-flex list-unstyled mt-auto">
+                    <li class="me-auto">
+                      <img
+                        src="https://github.com/twbs.png"
+                        alt="Bootstrap"
+                        width="32"
+                        height="32"
+                        class="rounded-circle border border-white"
+                      />
+                    </li>
+                    <li class="d-flex align-items-center me-3">
+                      <svg class="bi me-2" width="1em" height="1em">
+                        <use xlink:href="#geo-fill"></use>
+                      </svg>
+                      <small>California</small>
+                    </li>
+                    <li class="d-flex align-items-center">
+                      <svg class="bi me-2" width="1em" height="1em">
+                        <use xlink:href="#calendar3"></use>
+                      </svg>
+                      <small>5d</small>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="b-example-divider"></div>
+
+        <div class="container px-4 py-5" id="icon-grid">
+          <h2 class="pb-2 border-bottom">Icon grid</h2>
+
+          <div
+            class="
+              row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4
+              g-4
+              py-5
+            "
+          >
+            <div class="col d-flex align-items-start">
+              <svg
+                class="bi text-muted flex-shrink-0 me-3"
+                width="1.75em"
+                height="1.75em"
+              >
+                <use xlink:href="#bootstrap"></use>
+              </svg>
+              <div>
+                <h4 class="fw-bold mb-0">Featured title</h4>
+                <p>
+                  Paragraph of text beneath the heading to explain the heading.
+                </p>
+              </div>
+            </div>
+            <div class="col d-flex align-items-start">
+              <svg
+                class="bi text-muted flex-shrink-0 me-3"
+                width="1.75em"
+                height="1.75em"
+              >
+                <use xlink:href="#cpu-fill"></use>
+              </svg>
+              <div>
+                <h4 class="fw-bold mb-0">Featured title</h4>
+                <p>
+                  Paragraph of text beneath the heading to explain the heading.
+                </p>
+              </div>
+            </div>
+            <div class="col d-flex align-items-start">
+              <svg
+                class="bi text-muted flex-shrink-0 me-3"
+                width="1.75em"
+                height="1.75em"
+              >
+                <use xlink:href="#calendar3"></use>
+              </svg>
+              <div>
+                <h4 class="fw-bold mb-0">Featured title</h4>
+                <p>
+                  Paragraph of text beneath the heading to explain the heading.
+                </p>
+              </div>
+            </div>
+            <div class="col d-flex align-items-start">
+              <svg
+                class="bi text-muted flex-shrink-0 me-3"
+                width="1.75em"
+                height="1.75em"
+              >
+                <use xlink:href="#home"></use>
+              </svg>
+              <div>
+                <h4 class="fw-bold mb-0">Featured title</h4>
+                <p>
+                  Paragraph of text beneath the heading to explain the heading.
+                </p>
+              </div>
+            </div>
+            <div class="col d-flex align-items-start">
+              <svg
+                class="bi text-muted flex-shrink-0 me-3"
+                width="1.75em"
+                height="1.75em"
+              >
+                <use xlink:href="#speedometer2"></use>
+              </svg>
+              <div>
+                <h4 class="fw-bold mb-0">Featured title</h4>
+                <p>
+                  Paragraph of text beneath the heading to explain the heading.
+                </p>
+              </div>
+            </div>
+            <div class="col d-flex align-items-start">
+              <svg
+                class="bi text-muted flex-shrink-0 me-3"
+                width="1.75em"
+                height="1.75em"
+              >
+                <use xlink:href="#toggles2"></use>
+              </svg>
+              <div>
+                <h4 class="fw-bold mb-0">Featured title</h4>
+                <p>
+                  Paragraph of text beneath the heading to explain the heading.
+                </p>
+              </div>
+            </div>
+            <div class="col d-flex align-items-start">
+              <svg
+                class="bi text-muted flex-shrink-0 me-3"
+                width="1.75em"
+                height="1.75em"
+              >
+                <use xlink:href="#geo-fill"></use>
+              </svg>
+              <div>
+                <h4 class="fw-bold mb-0">Featured title</h4>
+                <p>
+                  Paragraph of text beneath the heading to explain the heading.
+                </p>
+              </div>
+            </div>
+            <div class="col d-flex align-items-start">
+              <svg
+                class="bi text-muted flex-shrink-0 me-3"
+                width="1.75em"
+                height="1.75em"
+              >
+                <use xlink:href="#tools"></use>
+              </svg>
+              <div>
+                <h4 class="fw-bold mb-0">Featured title</h4>
+                <p>
+                  Paragraph of text beneath the heading to explain the heading.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="mb-3">
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-51.3312%2C-29.2445%2C-50.9824%2C-29.0808&amp;amp;layer=mapquest&amp;amp"
+          frameborder="0"
+          class="img-fluid w-100 d-print-none"
+        ></iframe>
+      </section>
+      <section class="mb-3">
+        <form class="row g-3 needs-validation" novalidate>
+          <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label"
+              >First name</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="validationTooltip01"
+              value="Mark"
+              required
+            />
+            <div class="valid-tooltip">Looks good!</div>
+          </div>
+          <div class="col-md-4 position-relative">
+            <label for="validationTooltip02" class="form-label"
+              >Last name</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="validationTooltip02"
+              value="Otto"
+              required
+            />
+            <div class="valid-tooltip">Looks good!</div>
+          </div>
+          <div class="col-md-4 position-relative">
+            <label for="validationTooltipUsername" class="form-label"
+              >Username</label
+            >
+            <div class="input-group has-validation">
+              <span
+                class="input-group-text"
+                id="validationTooltipUsernamePrepend"
+                >@</span
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="validationTooltipUsername"
+                aria-describedby="validationTooltipUsernamePrepend"
+                required
+              />
+              <div class="invalid-tooltip">
+                Please choose a unique and valid username.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 position-relative">
+            <label for="validationTooltip03" class="form-label">City</label>
+            <input
+              type="text"
+              class="form-control"
+              id="validationTooltip03"
+              required
+            />
+            <div class="invalid-tooltip">Please provide a valid city.</div>
+          </div>
+          <div class="col-md-3 position-relative">
+            <label for="validationTooltip04" class="form-label">State</label>
+            <select class="form-select" id="validationTooltip04" required>
+              <option selected disabled value="">Choose...</option>
+              <option>...</option>
+            </select>
+            <div class="invalid-tooltip">Please select a valid state.</div>
+          </div>
+          <div class="col-md-3 position-relative">
+            <label for="validationTooltip05" class="form-label">Zip</label>
+            <input
+              type="text"
+              class="form-control"
+              id="validationTooltip05"
+              required
+            />
+            <div class="invalid-tooltip">Please provide a valid zip.</div>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit form</button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>
+  </body>
+  <script src="https://polyfill.io/v3/polyfill.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"
+  ></script>
+</html>
