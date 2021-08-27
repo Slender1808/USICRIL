@@ -1,4 +1,9 @@
 # USICRIL
+## Lista de componetes
+
+1. YouTube
+2. Formulario *
+3. Google Analytics
 
 USICRIL, com sede na XX XXXX. XX, no Nº XX, bairro XXX, CEP 95010-000, cidade de Caxias do Sul, estado de Rio Grande do Sul, inscrita no CNPJ sob o n° XX.XXX.XXX/XXXX-XX. Neste ato representado pelo proprietário XXXX XXXX, brasileiro, solteiro, inscrito no CPF n° XXX.XXX.XXX-XX, carteira de identidade n° XXXXXXX-X, residente e domiciliado na XXXX, no Nº XXXX, bairro XXXX, CEP 95010-000, cidade de Caxias do Sul, estado de Rio Grande do Sul, usuário do endereço eletrônico XXXX@XXX.com proprietária do telefone n° XXXXXXXXXX. 
 
