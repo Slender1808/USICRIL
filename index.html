@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google-site-verification" content="Fn69z68OsVveXs1qgSQCWGkVY6sjVmhqAWXwRJHt4_w" />
+    <meta
+      name="google-site-verification"
+      content="Fn69z68OsVveXs1qgSQCWGkVY6sjVmhqAWXwRJHt4_w"
+    />
     <title>USICRIL</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -12,10 +15,16 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <style>
+      .gsc-control-cse{
+        background-color: #0000 !important;
+        border: #0000 !important;
+      }
+    </style>
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container-fluid">
           <button
             class="navbar-toggler"
@@ -47,17 +56,10 @@
                 >
               </li>
             </ul>
-            <form class="d-flex">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+         
+            <div class="col-md-5">
+              <div class="gcse-search"></div>
+            </div>            
           </div>
         </div>
       </nav>
@@ -676,5 +678,9 @@
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
     crossorigin="anonymous"
+  ></script>
+  <script
+    async
+    src="https://cse.google.com/cse.js?cx=ca40b798e4c26d0ee"
   ></script>
 </html>
