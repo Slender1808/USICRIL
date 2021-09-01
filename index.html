@@ -15,90 +15,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <style>
-      .gsc-control-cse {
-        background-color: #0000 !important;
-        border: #0000 !important;
-      }
-
-      .bi {
-        vertical-align: -0.125em;
-        fill: currentColor;
-      }
-
-      .feature-icon {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 4rem;
-        height: 4rem;
-        margin-bottom: 1rem;
-        font-size: 2rem;
-        color: #fff;
-        border-radius: 0.75rem;
-      }
-
-      .icon-link {
-        display: inline-flex;
-        align-items: center;
-      }
-      .icon-link > .bi {
-        margin-top: 0.125rem;
-        margin-left: 0.125rem;
-        transition: transform 0.25s ease-in-out;
-        fill: currentColor;
-      }
-      .icon-link:hover > .bi {
-        transform: translate(0.25rem);
-      }
-
-      .icon-square {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 3rem;
-        height: 3rem;
-        font-size: 1.5rem;
-        border-radius: 0.75rem;
-      }
-
-      .rounded-4 {
-        border-radius: 0.5rem;
-      }
-      .rounded-5 {
-        border-radius: 1rem;
-      }
-
-      .text-shadow-1 {
-        text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
-      }
-      .text-shadow-2 {
-        text-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
-      }
-      .text-shadow-3 {
-        text-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.25);
-      }
-
-      .card-cover {
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-      }
-
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
@@ -751,21 +668,20 @@
           </div>
         </div>
       </section>
-      <section class="mb-3">
+      <section class="mb-3 map">
         <iframe
           src="https://www.openstreetmap.org/export/embed.html?bbox=-51.3312%2C-29.2445%2C-50.9824%2C-29.0808&amp;amp;layer=mapquest&amp;amp"
           frameborder="0"
-          class="img-fluid w-100 d-print-none"
+          class="img-fluid w-100 h-100"
         ></iframe>
       </section>
-      <section class="mb-3">
+      <section class="mb-3 g-form">
         <iframe
           src="https://docs.google.com/forms/d/e/1FAIpQLSfAzA4xChqMBbrP8_qBgrJt5uDEallOn5M3qj7DfVC5ub2tKw/viewform?embedded=true"
           frameborder="0"
           marginheight="0"
           marginwidth="0"
-          height="640px"
-          class="img-fluid w-100"
+          class="img-fluid w-100 h-100"
           >Carregando…</iframe
         >
       </section>
