@@ -768,7 +768,8 @@
                   target="_blank"
                   id="link-zap"
                   href="https://wa.me/5551935051715?text=Olá, vim pelo site"
-                >Whatsapp</a>
+                  >Whatsapp</a
+                >
               </div>
             </div>
           </div>
@@ -805,6 +806,27 @@
         <span class="text-muted">Place sticky footer content here.</span>
       </div>
     </footer>
+    <button
+      type="button"
+      class="btn btn-primary position-fixed bottom-0 end-0 m-5"
+      onclick="getEmpresa()"
+    >
+      Qual sua empresa ?
+      <span
+        class="
+          position-absolute
+          top-0
+          start-100
+          translate-middle
+          badge
+          border border-light
+          rounded-circle
+          bg-danger
+          p-2
+        "
+        ><span class="visually-hidden">unread messages</span></span
+      >
+    </button>
   </body>
   <!-- Polyfill -->
   <script async src="https://polyfill.io/v3/polyfill.min.js"></script>

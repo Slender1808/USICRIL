@@ -1,6 +1,12 @@
 var gForm = document.getElementById("g-form");
 var linkZap = document.getElementById("link-zap");
 
+//;
+
+function getEmpresa(){
+  const cnpj = window.prompt('Digite CNPJ')
+}
+
 getLocation(0);
 function getLocation(tentativas) {
   setTimeout(() => {
