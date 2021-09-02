@@ -1,5 +1,9 @@
 .g-form {
-  height: 2700px;
+  height: 1590px;
+}
+
+.freebirdLightBackground {
+  background-color: #fff !important;
 }
 
 .map {
@@ -38,13 +42,13 @@
 
 @media (min-width: 576px) {
   .g-form {
-    height: 2260px;
+    height: 1470px;
   }
 }
 
 @media (min-width: 768px) {
   .g-form {
-    height: 2200px;
+    height: 1350px;
   }
   .bd-placeholder-img-lg {
     font-size: 3.5rem;

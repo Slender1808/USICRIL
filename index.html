@@ -127,7 +127,16 @@
     </svg>
 
     <header>
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark text-white">
+      <nav
+        class="
+          navbar navbar-expand-md navbar-dark
+          bg-dark
+          text-white
+          rounded-bottom
+          fixed-top
+          shadow-lg
+        "
+      >
         <div class="container-fluid">
           <button
             class="navbar-toggler"
@@ -140,7 +149,10 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="navbarTogglerDemo01"
+          >
             <a class="navbar-brand" href="#">USICRIL</a>
             <ul
               class="
@@ -200,8 +212,8 @@
         </div>
       </nav>
     </header>
-    <main class="container">
-      <section class="mb-3">
+    <main class="container pt-5 mt-5">
+      <section class="mb-3 mt-5 shadow">
         <div
           id="carouselExampleCaptions"
           class="carousel slide"
@@ -229,7 +241,7 @@
               aria-label="Slide 3"
             ></button>
           </div>
-          <div class="carousel-inner">
+          <div class="carousel-inner rounded-3">
             <div class="carousel-item active">
               <img
                 src="https://picsum.photos/id/1/1024"
@@ -292,7 +304,7 @@
       </section>
       <section class="mb-3">
         <h1 class="visually-hidden">Features examples</h1>
-        <section class="container mb-5 p-5 shadow" id="featured-3">
+        <section class="mb-5 p-5 shadow rounded-3" id="featured-3">
           <h2 class="pb-2 border-bottom">Columns with icons</h2>
           <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
             <div class="feature col">
@@ -366,7 +378,7 @@
             >
           </section>
         </section>
-        <section class="container mb-5 p-5 shadow" id="hanging-icons">
+        <section class="mb-5 p-5 shadow rounded-3" id="hanging-icons">
           <h2 class="pb-2 border-bottom">Hanging icons</h2>
           <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
             <div class="col d-flex align-items-start">
@@ -419,7 +431,7 @@
             </div>
           </div>
         </section>
-        <section class="container mb-5 p-5 shadow" id="custom-cards">
+        <section class="mb-5 p-5 shadow rounded-3" id="custom-cards">
           <h2 class="pb-2 border-bottom">Custom cards</h2>
           <div
             class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5"
@@ -573,7 +585,7 @@
             </div>
           </div>
         </section>
-        <section class="container mb-5 p-5 shadow" id="icon-grid">
+        <section class="mb-5 p-5 shadow rounded-3" id="icon-grid">
           <h2 class="pb-2 border-bottom">Icon grid</h2>
           <div
             class="
@@ -705,8 +717,8 @@
           </div>
         </section>
       </section>
-      <section class="mb-5 p-5 shadow">
-        <h2>Contato</h2>
+      <section class="mb-5 p-5 shadow rounded-3">
+        <h2 class="pb-2 border-bottom">Conatato</h2>
         <div class="d-flex align-items-center row">
           <div class="d-block col-md-6">
             <ul class="list-group list-group-flush">
@@ -769,12 +781,13 @@
           </div>
         </div>
       </section>
-      <section class="mb-5 g-form">
+      <section class="mb-5 g-form" id="g-form">
         <iframe
           src="https://docs.google.com/forms/d/e/1FAIpQLSfAzA4xChqMBbrP8_qBgrJt5uDEallOn5M3qj7DfVC5ub2tKw/viewform?embedded=true"
           frameborder="0"
           marginheight="0"
           marginwidth="0"
+          id="g-form"
           class="img-fluid w-100 h-100"
           >Carregando…</iframe
         >
@@ -788,6 +801,7 @@
   </body>
   <!-- Polyfill -->
   <script async src="https://polyfill.io/v3/polyfill.min.js"></script>
+  <script src="main.js"></script>
   <!-- Popper js -->
   <script
     async
