@@ -1,9 +1,16 @@
 var gForm = document.getElementById("g-form");
 var linkZap = document.getElementById("link-zap");
-
-//;
+var modalBody = document.getElementById("modal-body");
+var modalEmpresas;
 
 async function getEmpresa() {
+  modalEmpresas = new bootstrap.Modal(
+    document.getElementById("modalEmpresas"),
+    {
+      keyboard: false,
+    }
+  );
+
   if (window.confirm("Sabe o CNPJ ?")) {
     const cnpj = window.prompt("Digite CNPJ");
     console.log("https://brasilapi.com.br/api/cnpj/v1/${cnpj}");
@@ -26,6 +33,61 @@ async function getEmpresa() {
       .catch((error) => console.log("error", error));
 
     console.log(searchName);
+
+    let result = "";
+    searchName.companies.forEach((e) => {
+      if (e.tp_situacao == "ATIVA") {
+        result =
+          result +
+          `
+        <tr>
+          <th>${e.cd_cnpj}</th>
+          <td>${e.razao_social}</td>
+          <td>${e.nm_ativ_econ_primaria}</td>
+          <td>${e.cep}</td>
+          <td>${e.uf}</td>
+          <td>${e.cidade}</td>
+        </tr>
+      `;
+      }
+    });
+
+    modalBody.innerHTML = result;
+
+    modalEmpresas.show();
+
+    /*
+    bairro: "REBOUCAS"
+    cd_ativ_econ_primaria: "M-7120-1/00"
+    cd_cnpj: "00.948.771/0001-05"
+    cep: "16.400-697"
+    cidade: "LINS"
+    complemento: null
+    ds_dominio: {totalSites: 0, ds_dominio: ''}
+    ds_telefone: {totalPhones: 0, ds_telefone: ''}
+    dt_abertura: "1995-12-01T00:00:00.000Z"
+    grupo_economico: {qtd_exibicao_funcionarios_ate: 11, vlr_exibicao_faturamento_de: 81001, vlr_exibicao_faturamento_ate: 360001, qtd_exibicao_funcionarios_de: ''}
+    logradouro: "RUA GUARARAPES"
+    nm_ativ_econ_primaria: "Testes e análises técnicas"
+    nm_fantasia: null
+    numero: "376"
+    razao_social: "BILL - TESTES E ANALISES TECNICAS LTDA"
+    tp_situacao: "ATIVA"
+    tp_unidade: "MATRIZ"
+    uf: "SP"
+    vlr_capital_social: 5000
+    */
+    /*
+    <tr>
+                  <td>
+                    <p>0115454</p>
+                    <h5>titulo</h5>
+                    <h6>subtitulo</h6>
+                  </td>
+                  <td>av. teste</td>
+                  <td>51 123456789</td>
+                </tr>
+    */
   }
 }
 
