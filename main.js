@@ -3,8 +3,30 @@ var linkZap = document.getElementById("link-zap");
 
 //;
 
-function getEmpresa(){
-  const cnpj = window.prompt('Digite CNPJ')
+async function getEmpresa() {
+  if (window.confirm("Sabe o CNPJ ?")) {
+    const cnpj = window.prompt("Digite CNPJ");
+    console.log("https://brasilapi.com.br/api/cnpj/v1/${cnpj}");
+  } else {
+    const name = window.prompt("Digite nome da empresa");
+    console.log(name);
+
+    const searchName = await fetch(
+      "https://www.econodata.com.br/consulta-empresa/api/ecdt-busca/searchCompaniesSite",
+      {
+        method: "POST",
+        headers: new Headers({
+          "Content-Type": "application/json;charset=UTF-8",
+        }),
+        body: JSON.stringify({ input: name }),
+        redirect: "follow",
+      }
+    )
+      .then((response) => response.json())
+      .catch((error) => console.log("error", error));
+
+    console.log(searchName);
+  }
 }
 
 getLocation(0);
