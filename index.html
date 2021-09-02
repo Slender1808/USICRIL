@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div id="fb-root"></div>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
       <symbol id="bootstrap" viewBox="0 0 118 94">
         <title>Bootstrap</title>
@@ -124,7 +125,7 @@
         ></path>
       </symbol>
     </svg>
-    
+
     <header>
       <nav class="navbar navbar-expand-md navbar-dark bg-dark text-white">
         <div class="container-fluid">
@@ -141,34 +142,53 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <a class="navbar-brand" href="#">USICRIL</a>
-            <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+            <ul
+              class="
+                nav
+                col-12 col-lg-auto
+                my-2
+                justify-content-center
+                my-md-0
+                text-small
+              "
+            >
               <li>
                 <a href="#" class="nav-link text-secondary">
-                  <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"></use></svg>
+                  <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                    <use xlink:href="#home"></use>
+                  </svg>
                   Home
                 </a>
               </li>
               <li>
                 <a href="#" class="nav-link text-white">
-                  <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#speedometer2"></use></svg>
+                  <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                    <use xlink:href="#speedometer2"></use>
+                  </svg>
                   Dashboard
                 </a>
               </li>
               <li>
                 <a href="#" class="nav-link text-white">
-                  <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"></use></svg>
+                  <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                    <use xlink:href="#table"></use>
+                  </svg>
                   Orders
                 </a>
               </li>
               <li>
                 <a href="#" class="nav-link text-white">
-                  <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"></use></svg>
+                  <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                    <use xlink:href="#grid"></use>
+                  </svg>
                   Products
                 </a>
               </li>
               <li>
                 <a href="#" class="nav-link text-white">
-                  <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
+                  <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                    <use xlink:href="#people-circle"></use>
+                  </svg>
                   Customers
                 </a>
               </li>
@@ -685,12 +705,69 @@
           </div>
         </section>
       </section>
-      <section class="mb-5 shadow map">
-        <iframe
-          src="https://www.openstreetmap.org/export/embed.html?bbox=-51.3312%2C-29.2445%2C-50.9824%2C-29.0808&amp;amp;layer=mapquest&amp;amp"
-          frameborder="0"
-          class="img-fluid w-100 h-100"
-        ></iframe>
+      <section class="mb-5 p-5 shadow">
+        <h2>Contato</h2>
+        <div class="d-flex align-items-center row">
+          <div class="d-block col-md-6">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <a class="text-decoration-none link-dark"
+                  >Nome: Jadson Goulart de Matos</a
+                >
+              </li>
+              <li class="list-group-item">
+                <a
+                  class="text-decoration-none link-dark"
+                  href="https://goo.gl/maps/bKEognZdazbGPyes7"
+                  >Endereço: Vila São João, Torres - RS - CEP: 9560-000</a
+                >
+              </li>
+              <li class="list-group-item">
+                <a
+                  class="text-decoration-none link-dark"
+                  href="tel:+5551 99818-9117"
+                  >Telefone: 51 99818-9117</a
+                >
+              </li>
+              <li class="list-group-item">
+                <a
+                  class="text-decoration-none link-dark"
+                  href="mailto:jadson.g-matos@outlook.com"
+                  >Email: jadson.g-matos@outlook.com</a
+                >
+              </li>
+            </ul>
+            <div class="py-2 mx-auto d-print-none">
+              <div
+                class="fb-share-button"
+                data-href="https://developers.facebook.com/docs/plugins/"
+                data-layout="button_count"
+                data-size="small"
+              >
+                <a
+                  target="_blank"
+                  href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+                  class="fb-xfbml-parse-ignore"
+                  >Compartilhar</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="d-block col-md-5 mx-auto">
+            <div class="mb-5 shadow map">
+              <iframe
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-51.3312%2C-29.2445%2C-50.9824%2C-29.0808&amp;amp;layer=mapquest&amp;amp"
+                frameborder="0"
+                class="img-fluid w-100 h-100"
+              ></iframe>
+            </div>
+            <img
+              src="/Slender1808/images/qr.png"
+              alt="qr code"
+              class="d-flex mx-auto img-fluid"
+            />
+          </div>
+        </div>
       </section>
       <section class="mb-5 g-form">
         <iframe
@@ -729,6 +806,14 @@
   <script
     async
     src="https://cse.google.com/cse.js?cx=ca40b798e4c26d0ee"
+  ></script>
+  <!-- Facebook -->
+  <script
+    async
+    defer
+    crossorigin="anonymous"
+    src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v11.0"
+    nonce="ntROSlMS"
   ></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script
