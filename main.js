@@ -33,21 +33,8 @@ async function getEmpresa() {
 
           console.log("empresa", empresa);
 
-          let mensagem = `CNPJ: ${empresa.cnpj}, Razão Social: ${empresa.razao_social}, Setor: ${empresa.setor}, CEP: ${empresa.setor}, Estado: ${empresa.uf}, Cidade: ${empresa.cidade}`;
-
-          if (localisacao) {
-            if (localisacao.objPosition) {
-              mensagem = `${localisacao.objPosition.country} ${localisacao.objPosition.region}`;
-            }
-            if (localisacao.geolocation) {
-              mensagem =
-                mensagem +
-                `${localisacao.geolocation.coords.latitude}, ${localisacao.geolocation.coords.longitude}`;
-            }
-          }
-
-          drawZap(mensagem);
-          drawGFrom(mensagem);
+          drawZap();
+          drawGFrom();
         } else {
           getEmpresa();
         }
@@ -107,6 +94,9 @@ function modalTableSeachEmpresas(element) {
   };
   modalEmpresas.toggle();
   console.log("empresa", empresa);
+
+  drawZap();
+  drawGFrom();
 }
 
 window.onload = function () {
@@ -131,7 +121,7 @@ function showFormPosition(position) {
   let endereco = `${localisacao.geolocation.coords.latitude}, ${localisacao.geolocation.coords.longitude}`;
 
   drawZap(endereco);
-  drawGFrom("", "", endereco, "");
+  drawGFrom();
   fetch(
     `https://geocode.xyz/?json=1&locate=${
       localisacao.geolocation.coords.latitude +
@@ -147,26 +137,7 @@ function showFormPosition(position) {
 
         console.log("localisacao", localisacao);
 
-        let gFrom = {
-          nome: "",
-          tel: "",
-          msg: "",
-          endereco: `Cidade:${localisacao.objPosition.country}, Estado:${localisacao.objPosition.region}, GPS:${localisacao.geolocation.coords.latitude}, ${localisacao.geolocation.coords.longitude}`,
-        };
-
-        if (empresa) {
-          if (empresa.razao_social) {
-            gFrom.nome = empresa.razao_social;
-          }
-          if (empresa.razao_social) {
-            gFrom.tel = empresa.tel;
-          }
-          if (empresa.razao_social) {
-            gFrom.msg = empresa.setor;
-          }
-        }
-
-        drawGFrom(gFrom);
+        drawGFrom();
       }
     })
     .catch((error) => console.log("error", error));
@@ -176,11 +147,61 @@ function drawZap(mensagem) {
   linkZap.href = "https://wa.me/5551935051715?text=Olá, " + mensagem;
 }
 
-function drawGFrom(dados) {
-  console.log("drawGFrom", dados);
+function drawGFrom() {
+  let gFrom = {
+    nome: "",
+    tel: "",
+    msg: "",
+    endereco: "",
+  };
+
+  if (localisacao) {
+    if (localisacao.objPosition) {
+      if (localisacao.objPosition.country) {
+        gFrom.endereco =
+          gFrom.endereco + `Cidade: ${localisacao.objPosition.country}, `;
+      }
+      if (localisacao.objPosition.region) {
+        gFrom.endereco =
+          gFrom.endereco + `UF: ${localisacao.objPosition.region}, `;
+      }
+    }
+    if (localisacao.geolocation) {
+      if (localisacao.geolocation.coords) {
+        gFrom.endereco =
+          gFrom.endereco +
+          `GPS: ${localisacao.geolocation.coords.latitude}, ${localisacao.geolocation.coords.longitude}`;
+      }
+    }
+  }
+
+  if (empresa) {
+    if (empresa.razao_social) {
+      gFrom.nome = empresa.razao_social;
+    }
+    if (empresa.tel) {
+      gFrom.tel = empresa.tel;
+    }
+    if (empresa.setor) {
+      gFrom.msg = empresa.setor;
+    }
+    if (gFrom.endereco == "") {
+      if (empresa.cep) {
+        gFrom.endereco = gFrom.endereco + `CEP: ${empresa.cep}, `;
+      }
+      if (empresa.uf) {
+        gFrom.endereco = gFrom.endereco + `UF: ${empresa.uf}, `;
+      }
+      if (empresa.cidade) {
+        gFrom.endereco = gFrom.endereco + `Cidade: ${empresa.cidade}, `;
+      }
+    }
+  }
+
+  console.log("drawGFrom", gFrom);
   gForm.innerHTML = `
         <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSfAzA4xChqMBbrP8_qBgrJt5uDEallOn5M3qj7DfVC5ub2tKw/viewform?usp=pp_url&entry.1000020=${dados.nome}&entry.1000022=${dados.tel}&entry.1973420573=${dados.endereco}&entry.1594866438=${dados.msg}"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfAzA4xChqMBbrP8_qBgrJt5uDEallOn5M3qj7DfVC5ub2tKw/viewform?usp=pp_url&entry.1000020=${gFrom.nome}&entry.1000022=${gFrom.tel}&entry.1973420573=${gFrom.endereco}&entry.1594866438=${gFrom.msg}"
           frameborder="0"
           marginheight="0"
           marginwidth="0"
