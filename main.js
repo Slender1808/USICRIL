@@ -5,14 +5,33 @@ var empresa;
 var localisacao;
 var modalBody = document.getElementById("modal-body");
 var modalEmpresas;
+var linkEmpresa = document.getElementById("get-empresa");
 
-async function getEmpresa() {
+window.onload = function () {
+  getLocation(0);
   modalEmpresas = new bootstrap.Modal(
     document.getElementById("modalEmpresas"),
     {
       keyboard: false,
     }
   );
+};
+
+async function getEmpresa() {
+  linkEmpresa.innerHTML = `
+  <div class="spinner-border text-primary position-fixed bottom-0 end-0 m-5" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  `;
+
+  if (!modalEmpresas) {
+    modalEmpresas = new bootstrap.Modal(
+      document.getElementById("modalEmpresas"),
+      {
+        keyboard: false,
+      }
+    );
+  }
 
   if (window.confirm("Sabe o CNPJ ?")) {
     const cnpj = window.prompt("Digite CNPJ");
@@ -39,7 +58,8 @@ async function getEmpresa() {
           getEmpresa();
         }
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => console.log("error", error))
+      .finally(drawlinkEmpresa);
   } else {
     const name = window.prompt("Digite nome da empresa");
 
@@ -78,7 +98,8 @@ async function getEmpresa() {
         modalBody.innerHTML = result;
         modalEmpresas.show();
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => console.log("error", error))
+      .finally(drawlinkEmpresa());
   }
 }
 
@@ -99,29 +120,28 @@ function modalTableSeachEmpresas(element) {
   drawGFrom();
 }
 
-window.onload = function () {
-  getLocation(0);
-};
-
 function getLocation(tentativas) {
   console.log("getLocation", new Date().getTime());
   setTimeout(() => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showFormPosition);
+      navigator.geolocation.getCurrentPosition(getPosition);
     } else if (tentativas < 5) {
       getLocation(tentativas++);
     }
-  }, 2000);
+  }, 2100);
 }
 
-function showFormPosition(position) {
+function getPosition(position) {
   localisacao = { ...localisacao, geolocation: position };
   console.log("localisacao", localisacao);
 
-  let endereco = `${localisacao.geolocation.coords.latitude}, ${localisacao.geolocation.coords.longitude}`;
-
-  drawZap(endereco);
+  drawZap();
   drawGFrom();
+
+  gpsToEndreco(0);
+}
+
+async function gpsToEndreco(tentativas) {
   fetch(
     `https://geocode.xyz/?json=1&locate=${
       localisacao.geolocation.coords.latitude +
@@ -138,13 +158,70 @@ function showFormPosition(position) {
         console.log("localisacao", localisacao);
 
         drawGFrom();
+      } else if (response.status == 403) {
+        // Tentar Novamente
+        if (tentativas < 5) {
+          setTimeout(gpsToEndreco(tentativas++), 5000);
+        }
       }
     })
     .catch((error) => console.log("error", error));
 }
 
-function drawZap(mensagem) {
-  linkZap.href = "https://wa.me/5551935051715?text=Olá, " + mensagem;
+function drawZap() {
+  let endreco = "";
+  let mensagem = "";
+
+  if (localisacao) {
+    if (localisacao.objPosition) {
+      if (localisacao.objPosition.country) {
+        endreco = endreco + `Cidade: ${localisacao.objPosition.country}, `;
+      }
+      if (localisacao.objPosition.region) {
+        endreco = endreco + `UF: ${localisacao.objPosition.region}, `;
+      }
+    }
+    if (localisacao.geolocation) {
+      if (localisacao.geolocation.coords) {
+        endreco =
+          endreco +
+          `GPS: ${localisacao.geolocation.coords.latitude} | ${localisacao.geolocation.coords.longitude}, `;
+      }
+    }
+  }
+
+  if (empresa) {
+    if (empresa.razao_social) {
+      mensagem = mensagem + `Nome: ${empresa.razao_social}, `;
+    }
+    if (empresa.tel) {
+      mensagem = mensagem + `Telefone: ${empresa.tel}, `;
+    }
+    if (empresa.setor) {
+      mensagem = mensagem + `Setor: ${empresa.setor}, `;
+    }
+
+    if (endreco == "") {
+      if (empresa.cep) {
+        endreco = endreco + `CEP: ${empresa.cep}, `;
+      }
+      if (empresa.uf) {
+        endreco = endreco + `UF: ${empresa.uf}, `;
+      }
+      if (empresa.cidade) {
+        endreco = endreco + `Cidade: ${empresa.cidade}, `;
+      }
+    }
+  }
+
+  if (mensagem != "") {
+    if (endreco != "") {
+      mensagem = mensagem + endreco;
+    }
+
+    console.log("drawZap", mensagem);
+    linkZap.href = "https://wa.me/5551935051715?text=Olá, " + mensagem;
+  }
 }
 
 function drawGFrom() {
@@ -209,4 +286,30 @@ function drawGFrom() {
           class="img-fluid w-100 h-100"
           >Carregando…</iframe>
         `;
+}
+
+function drawlinkEmpresa() {
+  linkEmpresa.innerHTML = `
+  <button
+    type="button"
+    class="btn btn-primary position-fixed bottom-0 end-0 m-5 shadow"
+    onclick="getEmpresa()"
+  >
+    Qual sua empresa ?
+    <span
+      class="
+        position-absolute
+        top-0
+        start-100
+        translate-middle
+        badge
+        border border-light
+        rounded-circle
+        bg-danger
+        p-2
+      "
+      ><span class="visually-hidden">unread messages</span></span
+    >
+  </button>
+  `;
 }
