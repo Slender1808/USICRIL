@@ -118,6 +118,7 @@ function modalTableSeachEmpresas(element) {
 
   drawZap();
   drawGFrom();
+  drawlinkEmpresa()
 }
 
 function getLocation(tentativas) {
@@ -289,27 +290,45 @@ function drawGFrom() {
 }
 
 function drawlinkEmpresa() {
-  linkEmpresa.innerHTML = `
-  <button
-    type="button"
-    class="btn btn-primary position-fixed bottom-0 end-0 m-5 shadow"
-    onclick="getEmpresa()"
-  >
-    Qual sua empresa ?
-    <span
-      class="
-        position-absolute
-        top-0
-        start-100
-        translate-middle
-        badge
-        border border-light
-        rounded-circle
-        bg-danger
-        p-2
-      "
-      ><span class="visually-hidden">unread messages</span></span
+  let mensagem = "";
+  if (empresa) {
+    if (empresa.razao_social) {
+      mensagem = empresa.razao_social;
+    }
+  }
+
+  if (mensagem == "") {
+    linkEmpresa.innerHTML = `
+    <button
+      type="button"
+      class="btn btn-primary position-fixed bottom-0 end-0 m-5 shadow"
+      onclick="getEmpresa()"
     >
-  </button>
-  `;
+      Qual sua empresa ?
+      <span
+        class="
+          position-absolute
+          top-0
+          start-100
+          translate-middle
+          badge
+          border border-light
+          rounded-circle
+          bg-danger
+          p-2
+        "
+        ><span class="visually-hidden">unread messages</span></span
+      >
+    </button>
+    `;
+  } else {
+    linkEmpresa.innerHTML = `
+    <div
+      class="badge bg-primary text-wrap position-fixed bottom-0 end-0 m-5"
+      style="width: 10rem;"
+    >
+      Bem-Vindo ${mensagem}
+    </div>;
+    `;
+  }
 }
