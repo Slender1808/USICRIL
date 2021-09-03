@@ -118,7 +118,7 @@ function modalTableSeachEmpresas(element) {
 
   drawZap();
   drawGFrom();
-  drawlinkEmpresa()
+  drawlinkEmpresa();
 }
 
 function getLocation(tentativas) {
