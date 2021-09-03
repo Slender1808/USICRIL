@@ -20,34 +20,37 @@ async function getEmpresa() {
     fetch("https://brasilapi.com.br/api/cnpj/v1/" + cnpj)
       .then(async (response) => {
         const searchCnpj = await response.json();
-        empresa = searchCnpj;
-        console.log("searchCnpj", searchCnpj);
+        if (searchCnpj.descricao_situacao_cadastral) {
+          empresa = {
+            cnpj: searchCnpj.cnpj,
+            razao_social: searchCnpj.razao_social,
+            setor: searchCnpj.cnae_fiscal_descricao,
+            cep: searchCnpj.cep,
+            uf: searchCnpj.uf,
+            cidade: searchCnpj.municipio,
+            tel: searchCnpj.ddd_telefone_1,
+          };
 
-        let mensagem = `CNPJ: ${empresa.cnpj}, Razão Social: ${empresa.razao_social}, Setor: ${empresa.setor}, CEP: ${empresa.setor}, Estado: ${empresa.uf}, Cidade: ${empresa.cidade}`;
+          console.log("empresa", empresa);
 
-        if (localisacao) {
-          if (localisacao.objPosition) {
-            mensagem = `${localisacao.objPosition.country} ${localisacao.objPosition.region}`;
+          let mensagem = `CNPJ: ${empresa.cnpj}, Razão Social: ${empresa.razao_social}, Setor: ${empresa.setor}, CEP: ${empresa.setor}, Estado: ${empresa.uf}, Cidade: ${empresa.cidade}`;
+
+          if (localisacao) {
+            if (localisacao.objPosition) {
+              mensagem = `${localisacao.objPosition.country} ${localisacao.objPosition.region}`;
+            }
+            if (localisacao.geolocation) {
+              mensagem =
+                mensagem +
+                `${localisacao.geolocation.coords.latitude}, ${localisacao.geolocation.coords.longitude}`;
+            }
           }
-          if (localisacao.geolocation) {
-            mensagem =
-              mensagem +
-              `${localisacao.geolocation.coords.latitude}, ${localisacao.geolocation.coords.longitude}`;
-          }
+
+          drawZap(mensagem);
+          drawGFrom(mensagem);
+        } else {
+          getEmpresa();
         }
-
-        linkZap.href = "https://wa.me/5551935051715?text=Olá, " + mensagem;
-
-        gForm.innerHTML = `
-              <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLSfAzA4xChqMBbrP8_qBgrJt5uDEallOn5M3qj7DfVC5ub2tKw/viewform?usp=pp_url&entry.1973420573=${mensagem}"
-                frameborder="0"
-                marginheight="0"
-                marginwidth="0"
-                id="g-form"
-                class="img-fluid w-100 h-100"
-                >Carregando…</iframe>
-              `;
       })
       .catch((error) => console.log("error", error));
   } else {
@@ -103,48 +106,32 @@ function modalTableSeachEmpresas(element) {
     cidade: row[5].innerHTML,
   };
   modalEmpresas.toggle();
-  console.log(empresa);
-  console.log(localisacao);
+  console.log("empresa", empresa);
 }
 
-getLocation(0);
+window.onload = function () {
+  getLocation(0);
+};
+
 function getLocation(tentativas) {
+  console.log("getLocation", new Date().getTime());
   setTimeout(() => {
-    if (tentativas < 5) {
-      console.log("getLocation");
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showFormPosition);
-      } else {
-        getLocation(tentativas++);
-      }
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showFormPosition);
+    } else if (tentativas < 5) {
+      getLocation(tentativas++);
     }
-  }, 1000);
+  }, 2000);
 }
 
 function showFormPosition(position) {
   localisacao = { ...localisacao, geolocation: position };
+  console.log("localisacao", localisacao);
 
-  linkZap.href = `https://wa.me/5551935051715?text=Olá, sou de ${
-    localisacao.geolocation.coords.latitude +
-    ", " +
-    localisacao.geolocation.coords.longitude
-  } vim pelo link do site`;
+  let endereco = `${localisacao.geolocation.coords.latitude}, ${localisacao.geolocation.coords.longitude}`;
 
-  gForm.innerHTML = `
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSfAzA4xChqMBbrP8_qBgrJt5uDEallOn5M3qj7DfVC5ub2tKw/viewform?usp=pp_url&entry.1973420573=${
-            localisacao.geolocation.coords.latitude +
-            ", " +
-            localisacao.geolocation.coords.longitude
-          }"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-          id="g-form"
-          class="img-fluid w-100 h-100"
-          >Carregando…</iframe>
-        `;
-
+  drawZap(endereco);
+  drawGFrom("", "", endereco, "");
   fetch(
     `https://geocode.xyz/?json=1&locate=${
       localisacao.geolocation.coords.latitude +
@@ -153,18 +140,47 @@ function showFormPosition(position) {
     }`
   )
     .then(async (response) => {
-      const objPosition = await response.json();
-      console.log("objPosition", objPosition);
+      if (response.status == 200) {
+        const objPosition = await response.json();
 
-      localisacao = { ...localisacao, objPosition };
+        localisacao = { ...localisacao, objPosition };
 
-      const mensagem = `${localisacao.objPosition.country} ${localisacao.objPosition.region} ${localisacao.geolocation.coords.latitude}, ${localisacao.geolocation.coords.longitude}`;
+        console.log("localisacao", localisacao);
 
-      linkZap.href = "https://wa.me/5551935051715?text=Olá, " + mensagem;
+        let gFrom = {
+          nome: "",
+          tel: "",
+          msg: "",
+          endereco: `Cidade:${localisacao.objPosition.country}, Estado:${localisacao.objPosition.region}, GPS:${localisacao.geolocation.coords.latitude}, ${localisacao.geolocation.coords.longitude}`,
+        };
 
-      gForm.innerHTML = `
+        if (empresa) {
+          if (empresa.razao_social) {
+            gFrom.nome = empresa.razao_social;
+          }
+          if (empresa.razao_social) {
+            gFrom.tel = empresa.tel;
+          }
+          if (empresa.razao_social) {
+            gFrom.msg = empresa.setor;
+          }
+        }
+
+        drawGFrom(gFrom);
+      }
+    })
+    .catch((error) => console.log("error", error));
+}
+
+function drawZap(mensagem) {
+  linkZap.href = "https://wa.me/5551935051715?text=Olá, " + mensagem;
+}
+
+function drawGFrom(dados) {
+  console.log("drawGFrom", dados);
+  gForm.innerHTML = `
         <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSfAzA4xChqMBbrP8_qBgrJt5uDEallOn5M3qj7DfVC5ub2tKw/viewform?usp=pp_url&entry.1973420573=${mensagem}"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfAzA4xChqMBbrP8_qBgrJt5uDEallOn5M3qj7DfVC5ub2tKw/viewform?usp=pp_url&entry.1000020=${dados.nome}&entry.1000022=${dados.tel}&entry.1973420573=${dados.endereco}&entry.1594866438=${dados.msg}"
           frameborder="0"
           marginheight="0"
           marginwidth="0"
@@ -172,6 +188,4 @@ function showFormPosition(position) {
           class="img-fluid w-100 h-100"
           >Carregando…</iframe>
         `;
-    })
-    .catch((error) => console.log("error", error));
 }
