@@ -130,6 +130,7 @@
       <nav
         class="
           navbar navbar-expand-md navbar-dark
+          blur-dark
           bg-dark
           text-white
           rounded-bottom
@@ -712,7 +713,7 @@
       <section class="container mb-5 p-5 shadow rounded-3">
         <h2 class="pb-2 border-bottom">Conatato</h2>
         <div class="d-flex align-items-center row">
-          <div class="d-block col-md-6">
+          <div class="d-block row col-md-6 h-100 d-flex align-items-stretch">
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
                 <a class="text-decoration-none link-dark"
@@ -741,31 +742,33 @@
                 >
               </li>
             </ul>
-            <div class="py-2 mx-auto">
-              <div
-                class="fb-share-button"
-                data-href="https://developers.facebook.com/docs/plugins/"
-                data-layout="button_count"
-                data-size="small"
+
+            <div
+              class="fb-share-button"
+              data-href="https://developers.facebook.com/docs/plugins/"
+              data-layout="button_count"
+              data-size="small"
+            >
+              <a
+                target="_blank"
+                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+                class="fb-xfbml-parse-ignore"
+                >Compartilhar</a
               >
-                <a
-                  target="_blank"
-                  href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
-                  class="fb-xfbml-parse-ignore"
-                  >Compartilhar</a
-                >
-              </div>
-              <div>
-                <a
-                  target="_blank"
-                  id="link-zap"
-                  href="https://wa.me/5551935051715?text=Olá, vim pelo site"
-                  >Whatsapp</a
-                >
-              </div>
             </div>
-          </div>
-          <div class="d-block col-md-5 mx-auto">
+            <div>
+              <a
+                target="_blank"
+                id="link-zap"
+                href="https://wa.me/5551935051715?text=Olá, vim pelo site"
+                >Whatsapp</a
+              >
+            </div>
+            <img
+              src="qrcode.webp"
+              alt="qr code"
+              class="d-flex mx-auto img-fluid pixelated"
+            />
             <div class="mb-5 shadow map">
               <iframe
                 src="https://www.openstreetmap.org/export/embed.html?bbox=-51.3312%2C-29.2445%2C-50.9824%2C-29.0808&amp;amp;layer=mapquest&amp;amp"
@@ -773,24 +776,19 @@
                 class="img-fluid w-100 h-100"
               ></iframe>
             </div>
-            <img
-              src="/Slender1808/images/qr.png"
-              alt="qr code"
-              class="d-flex mx-auto img-fluid"
-            />
           </div>
+          <section class="d-block col-md-6 mx-auto g-form" id="g-form">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSfAzA4xChqMBbrP8_qBgrJt5uDEallOn5M3qj7DfVC5ub2tKw/viewform?embedded=true"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              id="g-form"
+              class="img-fluid w-100 h-100"
+              >Carregando…</iframe
+            >
+          </section>
         </div>
-      </section>
-      <section class="container mb-5 g-form shadow" id="g-form">
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSfAzA4xChqMBbrP8_qBgrJt5uDEallOn5M3qj7DfVC5ub2tKw/viewform?embedded=true"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-          id="g-form"
-          class="img-fluid w-100 h-100"
-          >Carregando…</iframe
-        >
       </section>
     </main>
     <footer class="footer mt-auto py-3 bg-light">

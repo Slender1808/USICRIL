@@ -1,9 +1,18 @@
+.pixelated{
+  image-rendering: pixelated;
+}
+
 .g-form {
-  height: 1590px;
+  height: 1600px;
 }
 
 .freebirdLightBackground {
   background-color: #fff !important;
+}
+
+.blur-dark {
+  backdrop-filter: saturate(200%) blur(30px);
+  background-color: #212529de !important;
 }
 
 .map {
@@ -42,13 +51,13 @@
 
 @media (min-width: 576px) {
   .g-form {
-    height: 1470px;
+    height: 1300px;
   }
 }
 
 @media (min-width: 768px) {
   .g-form {
-    height: 1350px;
+    height: 1590px;
   }
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
@@ -58,6 +67,10 @@
 .gsc-control-cse {
   background-color: #0000 !important;
   border: #0000 !important;
+}
+
+.gsc-input-box {
+  border-radius: 0.3rem !important;
 }
 
 .bi {

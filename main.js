@@ -175,11 +175,8 @@ function drawZap() {
 
   if (localisacao) {
     if (localisacao.objPosition) {
-      if (localisacao.objPosition.country) {
-        endreco = endreco + `Cidade: ${localisacao.objPosition.country}, `;
-      }
       if (localisacao.objPosition.region) {
-        endreco = endreco + `UF: ${localisacao.objPosition.region}, `;
+        endreco = endreco + `Região: ${localisacao.objPosition.region}, `;
       }
     }
     if (localisacao.geolocation) {
@@ -235,13 +232,9 @@ function drawGFrom() {
 
   if (localisacao) {
     if (localisacao.objPosition) {
-      if (localisacao.objPosition.country) {
-        gFrom.endereco =
-          gFrom.endereco + `Cidade: ${localisacao.objPosition.country}, `;
-      }
       if (localisacao.objPosition.region) {
         gFrom.endereco =
-          gFrom.endereco + `UF: ${localisacao.objPosition.region}, `;
+          gFrom.endereco + `Região: ${localisacao.objPosition.region}, `;
       }
     }
     if (localisacao.geolocation) {
