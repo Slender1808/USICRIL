@@ -6,6 +6,8 @@ var localisacao;
 var modalBody = document.getElementById("modal-body");
 var modalEmpresas;
 var linkEmpresa = document.getElementById("get-empresa");
+var page = 0;
+var mainBody = document.getElementById("main-body");
 
 window.onload = function () {
   getLocation(0);
