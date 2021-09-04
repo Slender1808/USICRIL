@@ -15,6 +15,12 @@
   background-color: #212529de !important;
 }
 
+.linkZap{
+  background-color: #1ebea5 !important;
+  width: 138px;
+  height: 28px;
+}
+
 .map {
   height: 50vh;
 }
@@ -51,13 +57,16 @@
 
 @media (min-width: 576px) {
   .g-form {
-    height: 1300px;
+    height: 1380px;
   }
 }
 
 @media (min-width: 768px) {
   .g-form {
     height: 1590px;
+  }
+  .map{
+    height: 1000px;
   }
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
@@ -143,4 +152,60 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
+}
+
+.contatos{
+  background-color: white;
+  height: 30vw;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.rowc{  
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+}
+
+.boxc{
+  height: 100%;
+  width: 50%;
+  display: flex;
+  text-align: center;
+  margin-left: 0px;
+  margin-right: 0px;
+  flex-direction: column;
+}
+
+.cont{
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.cont > h1{
+  font-size: 35px;
+  align-items: center;
+}
+
+@media (max-width: 1050px) {
+  .rowc{
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+  }
+
+  .boxc{
+    width: 100%;
+  }
+
+  .contatos{
+    height: 200%;
+  }
 }
